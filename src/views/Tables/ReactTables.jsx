@@ -23,6 +23,11 @@ import { dataTable } from "variables/sampleFormData.jsx";
 
 import { cardTitle } from "assets/jss/material-dashboard-pro-react.jsx";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+import testSaga from "../../redux/actions/test";
+
 const styles = {
   cardIconTitle: {
     ...cardTitle,
@@ -124,7 +129,10 @@ class ReactTables extends React.Component {
     };
   }
   handleNewReferralForm() {
-    console.log("Called");
+    this.props.testSaga();
+  }
+  componentWillReceiveProps(nextProps) {
+    console.log("Called", nextProps.test);
   }
   render() {
     const { classes } = this.props;
@@ -191,5 +199,17 @@ class ReactTables extends React.Component {
     );
   }
 }
-
-export default withStyles(styles)(ReactTables);
+const mapStateToProps = store => ({
+  test: store.testReducer.test
+});
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      testSaga
+    },
+    dispatch
+  );
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(ReactTables));
