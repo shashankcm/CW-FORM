@@ -142,7 +142,7 @@ class Dashboard extends React.Component {
       <div className={classes.wrapper}>
         <Sidebar
           routes={routes}
-          logoText={"Creative Tim"}
+          logoText={"Form Engine"}
           logo={logo}
           image={this.state.image}
           handleDrawerToggle={this.handleDrawerToggle}
@@ -168,10 +168,10 @@ class Dashboard extends React.Component {
               </div>
             </div>
           ) : (
-            <div className={classes.map}>
-              <Switch>{this.getRoutes(routes)}</Switch>
-            </div>
-          )}
+              <div className={classes.map}>
+                <Switch>{this.getRoutes(routes)}</Switch>
+              </div>
+            )}
           {this.getRoute() ? <Footer fluid /> : null}
           <FixedPlugin
             handleImageClick={this.handleImageClick}

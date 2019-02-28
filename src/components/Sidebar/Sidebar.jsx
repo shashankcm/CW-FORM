@@ -14,13 +14,15 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Hidden from "@material-ui/core/Hidden";
 import Collapse from "@material-ui/core/Collapse";
 import Icon from "@material-ui/core/Icon";
-
+import Typography from '@material-ui/core/Typography';
 // core components
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.jsx";
 
 import sidebarStyle from "assets/jss/material-dashboard-pro-react/components/sidebarStyle.jsx";
 
 import avatar from "assets/img/faces/avatar.jpg";
+import { Input } from "@material-ui/core";
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 var ps;
 
@@ -54,6 +56,7 @@ class SidebarWrapper extends React.Component {
   }
 }
 
+
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
@@ -62,7 +65,10 @@ class Sidebar extends React.Component {
       miniActive: true,
       ...this.getCollapseStates(props.routes)
     };
+
+
   }
+
   // this creates the intial state of this component based on the collapse routes
   // that it gets through this.props.routes
   getCollapseStates = routes => {
@@ -177,13 +183,13 @@ class Sidebar extends React.Component {
                 typeof prop.icon === "string" ? (
                   <Icon className={itemIcon}>{prop.icon}</Icon>
                 ) : (
-                  <prop.icon className={itemIcon} />
-                )
+                    <prop.icon className={itemIcon} />
+                  )
               ) : (
-                <span className={collapseItemMini}>
-                  {rtlActive ? prop.rtlMini : prop.mini}
-                </span>
-              )}
+                  <span className={collapseItemMini}>
+                    {rtlActive ? prop.rtlMini : prop.mini}
+                  </span>
+                )}
               <ListItemText
                 primary={rtlActive ? prop.rtlName : prop.name}
                 secondary={
@@ -273,13 +279,13 @@ class Sidebar extends React.Component {
               typeof prop.icon === "string" ? (
                 <Icon className={itemIcon}>{prop.icon}</Icon>
               ) : (
-                <prop.icon className={itemIcon} />
-              )
+                  <prop.icon className={itemIcon} />
+                )
             ) : (
-              <span className={collapseItemMini}>
-                {rtlActive ? prop.rtlMini : prop.mini}
-              </span>
-            )}
+                <span className={collapseItemMini}>
+                  {rtlActive ? prop.rtlMini : prop.mini}
+                </span>
+              )}
             <ListItemText
               primary={rtlActive ? prop.rtlName : prop.name}
               disableTypography={true}
@@ -349,7 +355,7 @@ class Sidebar extends React.Component {
     var user = (
       <div className={userWrapperClass}>
         <div className={photo}>
-          <img src={avatar} className={classes.avatarImg} alt="..." />
+
         </div>
         <List className={classes.list}>
           <ListItem className={classes.item + " " + classes.userItem}>
@@ -359,7 +365,7 @@ class Sidebar extends React.Component {
               onClick={() => this.openCollapse("openAvatar")}
             >
               <ListItemText
-                primary={rtlActive ? "تانيا أندرو" : "Tania Andrew"}
+                primary={rtlActive ? "تانيا أندرو" : "Admin"}
                 secondary={
                   <b
                     className={
@@ -470,6 +476,9 @@ class Sidebar extends React.Component {
         <a href="https://www.creative-tim.com" className={logoNormal}>
           {logoText}
         </a>
+        <Typography variant="caption" gutterBottom align="center" color='textPrimary'>
+          <font color="white">-- powered by eSystems Inc.</font>
+        </Typography>
       </div>
     );
     const drawerPaper =
