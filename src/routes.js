@@ -57,6 +57,19 @@ var dashRoutes = [
     icon: DashboardIcon,
     component: ReactTables,
     layout: "/admin"
+  },
+
+  {
+    path: "/wizard",
+    name: "Wizard",
+    rtlName: "ساحر",
+    mini: "W",
+    rtlMini: "ث",
+    component: Wizard,
+    layout: "/admin"
   }
+
+
+
 ];
 export default dashRoutes;
