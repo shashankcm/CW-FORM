@@ -278,6 +278,7 @@ class Wizard extends React.Component {
                   <prop.stepComponent
                     innerRef={node => (this[prop.stepId] = node)}
                     allStates={this.state.allStates}
+                    sections={prop.sectionobj}
                   />
                 </div>
               );

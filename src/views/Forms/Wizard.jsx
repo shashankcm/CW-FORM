@@ -11,7 +11,6 @@ import Step3 from "./WizardSteps/Step3.jsx";
 import formData from "./formsummary";
 
 class WizardView extends React.Component {
-
   constructor(props) {
     super(props);
     let indexSize = [];
@@ -24,15 +23,19 @@ class WizardView extends React.Component {
           for (var sections in demoobj2) {
             var sectionName = demoobj2[sections].name;
             sectionobjs.push(demoobj2[sections]);
-            indexSize.push({ stepName: sectionName, stepComponent: Step1, stepId: sectionName });
+            indexSize.push({
+              stepName: sectionName,
+              sectionobj: demoobj2[sections],
+              stepComponent: Step1,
+              stepId: sectionName
+            });
           }
         }
 
         this.state = {
-          stepsarr: indexSize,
-          secobjarr: sectionobjs
+          stepsarr: indexSize
+          //secobjarr: sectionobjs
         };
-
       }
     }
   }
@@ -54,11 +57,11 @@ class WizardView extends React.Component {
     */
     return (
       <GridContainer justify="center">
-        <GridItem xs={12} sm={8}>
+        <GridItem xs={12} sm={8} lg={12}>
           <Wizard
             validate
             steps={this.state.stepsarr}
-            sectionobjs={this.state.secobjarr}
+            //sectionobjs={this.state.secobjarr}
             title="Build Your Profile"
             subtitle="This information will let us know more about you."
             finishButtonClick={e => console.log(e)}
