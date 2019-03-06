@@ -129,8 +129,10 @@ class Wizard extends React.Component {
       });
       this.refreshAnimation(key);
     }
+    //console.log(this.state.allStates, "All states in nextButton");
   }
   previousButtonClick() {
+    //console.log(this.state.allStates, "All states in prevButton");
     if (
       this[this.props.steps[this.state.currentStep].stepId].sendState !==
       undefined
@@ -156,9 +158,25 @@ class Wizard extends React.Component {
     }
   }
   finishButtonClick() {
+    /* console.log(
+      "Finish button called",
+      this.props.validate,
+      "------", //true
+      this.props.finishButtonClick !== undefined, //true
+      "------",
+      this[this.props.steps[this.state.currentStep].stepId].isValidated !==
+        undefined, //true
+      "------",
+      this[this.props.steps[this.state.currentStep].stepId].isValidated(),
+      "------", //false
+      this[this.props.steps[this.state.currentStep].stepId].isValidated ===
+        undefined, //false
+      "------",
+      this.props.finishButtonClick !== undefined //true
+    ); */
     if (
       (this.props.validate === false &&
-        this.props.finishButtonClick !== undefined) ||
+        this.props.finishButtonClick !== undefined) || //(t &t) ||(false && t)
       (this.props.validate &&
         ((this[this.props.steps[this.state.currentStep].stepId].isValidated !==
           undefined &&
@@ -169,6 +187,7 @@ class Wizard extends React.Component {
             undefined) &&
         this.props.finishButtonClick !== undefined)
     ) {
+      //console.log("this.state.allStates", this.state.allStates);
       this.setState(
         {
           allStates: {
@@ -179,6 +198,7 @@ class Wizard extends React.Component {
           }
         },
         () => {
+          //console.log("this.state.allStates", this.state.allStates);
           this.props.finishButtonClick(this.state.allStates);
         }
       );

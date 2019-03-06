@@ -33,13 +33,27 @@ class WizardView extends React.Component {
         }
 
         this.state = {
-          stepsarr: indexSize
+          stepsarr: indexSize,
           //secobjarr: sectionobjs
+          childData: {
+            formID: "1001",
+            data: {},
+            status: "active",
+            audit: {
+              createdBy: "current user",
+              dateCreated: new Date(),
+              updatedBy: "current user",
+              dateModified: new Date()
+            }
+          }
         };
       }
     }
   }
-
+  handleCreateFormData = e => {
+    console.log(e);
+    console.log(this.state.childData);
+  };
   render() {
     /*
     [
@@ -57,14 +71,14 @@ class WizardView extends React.Component {
     */
     return (
       <GridContainer justify="center">
-        <GridItem xs={12} sm={8} lg={12}>
+        <GridItem xs={12} sm={8} lg={10}>
           <Wizard
             validate
             steps={this.state.stepsarr}
             //sectionobjs={this.state.secobjarr}
             title="Build Your Profile"
             subtitle="This information will let us know more about you."
-            finishButtonClick={e => console.log(e)}
+            finishButtonClick={this.handleCreateFormData} //e => console.log(e)
           />
         </GridItem>
       </GridContainer>

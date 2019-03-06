@@ -4,7 +4,8 @@ import {
   whiteColor,
   blackColor,
   grayColor,
-  hexToRgb
+  hexToRgb,
+  esystemsBlue
 } from "assets/jss/material-dashboard-pro-react.jsx";
 
 const customSelectStyle = {
