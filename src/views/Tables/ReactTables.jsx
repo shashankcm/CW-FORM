@@ -2,10 +2,11 @@ import React from "react";
 
 export default class ReactTables extends React.Component {
   render() {
-    const { classes } = this.props;
-    const headerRow = dataTable.headerRow;
+    //const { classes } = this.props;
+    //const headerRow = dataTable.headerRow;
     return (
-      <GridContainer>
+      <div />
+      /* <GridContainer>
         <GridItem xs={12}>
           <Card>
             <CardHeader color="primary" icon>
@@ -63,6 +64,7 @@ export default class ReactTables extends React.Component {
           </Card>
         </GridItem>
       </GridContainer>
+    */
     );
   }
 }
