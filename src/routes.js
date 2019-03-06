@@ -29,7 +29,6 @@ import VectorMap from "views/Maps/VectorMap.jsx";
 import Widgets from "views/Widgets/Widgets.jsx";
 import Wizard from "views/Forms/Wizard.jsx";
 
-
 // @material-ui/icons
 import Apps from "@material-ui/icons/Apps";
 import DashboardIcon from "@material-ui/icons/Dashboard";
@@ -40,8 +39,9 @@ import Place from "@material-ui/icons/Place";
 import Timeline from "@material-ui/icons/Timeline";
 import WidgetsIcon from "@material-ui/icons/Widgets";
 
-var dashRoutes = [
+import ReferralListTables from "views/Tables/Referral/ReferralList.jsx";
 
+var dashRoutes = [
   {
     path: "/forms",
     name: "Forms",
@@ -55,7 +55,7 @@ var dashRoutes = [
     name: "Referrals",
     rtlName: "التقويم",
     icon: DashboardIcon,
-    component: ReactTables,
+    component: ReferralListTables,
     layout: "/admin"
   },
 
@@ -68,8 +68,5 @@ var dashRoutes = [
     component: Wizard,
     layout: "/admin"
   }
-
-
-
 ];
 export default dashRoutes;

@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 
-import testReducer from "./testReducer";
+import referralList from "./referralListReducer";
 
 const AllReducers = combineReducers({
-  testReducer
+  referralList
 });
 export default AllReducers;

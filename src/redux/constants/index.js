@@ -1,1 +1,4 @@
-export const TEST_SAGA = "TEST_SAGA";
+export const FORM_LIST_FETCHING = 'FORM_LIST_FETCHING';
+export const FORM_LIST_FETCHED = 'FORM_LIST_FETCHED';
+export const FORM_LIST_ERROR = 'FORM_LIST_ERROR';
+
