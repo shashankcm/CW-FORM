@@ -142,7 +142,7 @@
                   "order": "2",
                   "elements": [
                     {
-                      "name": "Alleged Perpetrator Name",
+                      "name": "AllegedPerpetratorName",
                       "label": "Alleged Perpetrator Name",
                       "elementType": "text",
                       "description": "Alleged Perpetrator Name",
@@ -151,7 +151,7 @@
                       "validation": "[A-Z][a-z]"
                     },
                     {
-                      "name": "Alleged Perpetrator Sex",
+                      "name": "AllegedPerpetratorSex",
                       "label": "Alleged Perpetrator Sex",
                       "elementType": "radio",
                       "description": "Alleged Perpetrator Sex",
@@ -170,7 +170,7 @@
                       ]
                     },
                     {
-                      "name": "Alleged Perpetrator Race",
+                      "name": "AllegedPerpetratorRace",
                       "label": "Alleged Perpetrator Race",
                       "elementType": "select",
                       "description": "Alleged Perpetrator Race",
@@ -201,7 +201,7 @@
                       ]
                     },
                     {
-                      "name": "Alleged Perpetrator DOB",
+                      "name": "AllegedPerpetratorDOB",
                       "label": "Alleged Perpetrator DOB",
                       "elementType": "date",
                       "description": "Alleged Perpetrator DOB",

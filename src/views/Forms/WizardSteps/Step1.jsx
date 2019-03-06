@@ -2,9 +2,9 @@ import React from "react";
 
 // @material-ui/icons
 import Face from "@material-ui/icons/Face";
-import RecordVoiceOver from "@material-ui/icons/RecordVoiceOver";
-import Email from "@material-ui/icons/Email";
-
+//import RecordVoiceOver from "@material-ui/icons/RecordVoiceOver";
+//import Email from "@material-ui/icons/Email";
+import moment from "moment";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -23,10 +23,10 @@ import Datetime from "react-datetime";
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
-import PictureUpload from "components/CustomUpload/PictureUpload.jsx";
+//import PictureUpload from "components/CustomUpload/PictureUpload.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 import customSelectStyle from "assets/jss/material-dashboard-pro-react/customSelectStyle.jsx";
-import customCheckboxRadioSwitch from "assets/jss/material-dashboard-pro-react/customCheckboxRadioSwitch.jsx";
+//import customCheckboxRadioSwitch from "assets/jss/material-dashboard-pro-react/customCheckboxRadioSwitch.jsx";
 
 import regularFormsStyle from "assets/jss/material-dashboard-pro-react/views/regularFormsStyle";
 const style = {
@@ -49,17 +49,14 @@ class Step1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstname: "",
-      firstnameState: "",
-      lastname: "",
-      lastnameState: "",
-      email: "",
-      emailState: "",
-      childSexType: ""
+      /* email: "",
+      emailState: "" */
+      newChildInfo: ""
     };
     this.handleChange = this.handleChange.bind(this);
   }
   sendState() {
+    //console.log("sendStateMethodCalled", this.state);
     return this.state;
   }
   // function that returns true if value is email, false otherwise
@@ -78,6 +75,7 @@ class Step1 extends React.Component {
     return false;
   }
   change(event, stateName, type, stateNameEqualTo) {
+    event.persist();
     switch (type) {
       case "email":
         if (this.verifyEmail(event.target.value)) {
@@ -88,50 +86,118 @@ class Step1 extends React.Component {
         break;
       case "length":
         if (this.verifyLength(event.target.value, stateNameEqualTo)) {
-          this.setState({ [stateName + "State"]: "success" });
+          this.setState(prevState => ({
+            ...prevState,
+            [stateName + "State"]: "success"
+          }));
         } else {
-          this.setState({ [stateName + "State"]: "error" });
+          this.setState(prevState => ({
+            ...prevState,
+            [stateName + "State"]: "error"
+          }));
         }
         break;
       default:
         break;
     }
-    this.setState({ [stateName]: event.target.value });
+    //console.log(stateName, event.target.value);
+    this.setState(prevState => ({
+      newChildInfo: {
+        ...prevState.newChildInfo,
+        [stateName]: event.target.value
+      }
+    }));
   }
   isValidated() {
+    //console.log(this.state);
     if (
-      this.state.firstnameState === "success" &&
-      this.state.lastnameState === "success" &&
-      this.state.emailState === "success"
+      (this.state.ChildNameState &&
+        this.state.ChildNameState === "success" &&
+        (this.state.AllegedPerpetratorNameState &&
+          this.state.AllegedPerpetratorNameState === "success")) ||
+      (this.state.childAbuseDetailsState &&
+        this.state.childAbuseDetailsState === "success" &&
+        (this.state.childDangerSituationState &&
+          this.state.childDangerSituationState === "success") &&
+        (this.state.incidentOccurrenceState === "success" &&
+          this.state.incidentOccurrenceState === "success") &&
+        (this.state.childLastSeenState === "success" &&
+          this.state.childLastSeenState === "success"))
+      //this.state.emailState === "success"
     ) {
       return true;
     } else {
-      if (this.state.firstnameState !== "success") {
-        this.setState({ firstnameState: "error" });
+      if (this.state.ChildNameState !== "success") {
+        this.setState({ ChildNameState: "error" });
       }
-      if (this.state.lastnameState !== "success") {
-        this.setState({ lastnameState: "error" });
+      if (this.state.AllegedPerpetratorNameState !== "success") {
+        this.setState({ AllegedPerpetratorNameState: "error" });
       }
-      if (this.state.emailState !== "success") {
+      if (
+        //this.state.childAbuseDetailsState &&
+        this.state.childAbuseDetailsState !== "success"
+      ) {
+        this.setState({ childAbuseDetailsState: "error" });
+      }
+      if (
+        //this.state.childDangerSituationState &&
+        this.state.childDangerSituationState !== "success"
+      ) {
+        this.setState({ childDangerSituationState: "error" });
+      }
+      if (
+        //this.state.incidentOccurrenceState &&
+        this.state.incidentOccurrenceState !== "success"
+      ) {
+        this.setState({ incidentOccurrenceState: "error" });
+      }
+      if (
+        //this.state.childLastSeenState &&
+        this.state.childLastSeenState !== "success"
+      ) {
+        this.setState({ childLastSeenState: "error" });
+      }
+      /* if (this.state.emailState !== "success") {
         this.setState({ emailState: "error" });
-      }
+      } */
     }
     return false;
   }
   handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
-  }
-  handleChangeEnabled(event) {
-    this.setState({ selectedEnabled: event.target.value });
-  }
-  handleSimple = event => {
-    console.log(event.target.name, event.target.value);
     event.persist();
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState(prevState => ({
+      newChildInfo: {
+        ...prevState.newChildInfo,
+        [event.target.name]: event.target.value
+      }
+    }));
+    //this.setState({ [event.target.name]: event.target.value });
+  }
+  handleDateChange(props, e) {
+    this.setState(prevState => ({
+      newChildInfo: {
+        ...prevState.newChildInfo,
+        [props]: moment(e._d).format("MM/DD/YYYY")
+      }
+    }));
+  }
+  /* handleChangeEnabled(event) {
+    this.setState({ selectedEnabled: event.target.value });
+  } */
+  handleSimple = event => {
+    event.persist();
+    this.setState(prevState => ({
+      newChildInfo: {
+        ...prevState.newChildInfo,
+        [event.target.name]: event.target.value
+      }
+    }));
   };
   render() {
     const { classes, sections } = this.props;
-    console.log(sections);
+    //console.log(sections);
+    //console.log(this.state, "State");
+
     let groups = sections.groups;
     let htmlEle = groups.map((gp, index) => (
       <React.Fragment key={index}>
@@ -140,8 +206,8 @@ class Step1 extends React.Component {
           el.elementType === "text" ? (
             <CustomInput
               key={index}
-              success={this.state.firstnameState === "success"}
-              error={this.state.firstnameState === "error"}
+              success={this.state[el.name + "State"] === "success"} //this.state.firstnameState === "success"
+              error={this.state[el.name + "State"] === "error"} //this.state.firstnameState === "error"
               labelText={
                 <span>
                   {el.label}
@@ -153,7 +219,7 @@ class Step1 extends React.Component {
                 fullWidth: true
               }}
               inputProps={{
-                onChange: event => this.change(event, "firstname", "length", 5),
+                onChange: event => this.change(event, el.name, "length", 5),
                 endAdornment: (
                   <InputAdornment
                     position="end"
@@ -166,6 +232,8 @@ class Step1 extends React.Component {
             />
           ) : el.elementType === "radio" ? (
             <React.Fragment key={index}>
+              <br />
+              <br />
               <FormLabel
                 className={
                   classes.labelHorizontal +
@@ -187,11 +255,11 @@ class Step1 extends React.Component {
                     key={index}
                     control={
                       <Radio
-                        checked={this.state[op.name] === op.value}
+                        checked={this.state.newChildInfo[el.name] === op.value}
                         onChange={this.handleChange}
-                        value={this.state[op.value] ? this.state[op.value] : ""}
-                        name={op.title}
-                        aria-label={op.title}
+                        value={op.value}
+                        name={el.name}
+                        aria-label={el.name}
                         icon={
                           <FiberManualRecord
                             className={classes.radioUnchecked}
@@ -269,7 +337,11 @@ class Step1 extends React.Component {
                   classes={{
                     select: classes.select
                   }}
-                  value={this.state[el.name] ? this.state[el.name] : ""}
+                  value={
+                    this.state.newChildInfo[el.name]
+                      ? this.state.newChildInfo[el.name]
+                      : ""
+                  }
                   onChange={this.handleSimple}
                   inputProps={{
                     name: el.name,
@@ -301,6 +373,20 @@ class Step1 extends React.Component {
               <br />
               <br />
             </React.Fragment>
+          ) : el.elementType === "date" ? (
+            <React.Fragment key={index}>
+              <InputLabel className={classes.label}>{el.label}</InputLabel>
+              <br />
+              <FormControl fullWidth>
+                <Datetime
+                  timeFormat={false}
+                  inputProps={{ placeholder: el.description }}
+                  onChange={this.handleDateChange.bind(this, el.name)}
+                  name={el.name}
+                  //onClick={this.handleDateChange}
+                />
+              </FormControl>
+            </React.Fragment>
           ) : (
             ""
           )
@@ -310,13 +396,13 @@ class Step1 extends React.Component {
 
     return (
       <GridContainer>
-        <GridItem xs={12} sm={12} md={12} lg={10}>
+        <GridItem xs={12} sm={12} md={12} lg={12}>
           <h4 className={classes.infoText}>{sections.description}</h4>
         </GridItem>
-        <GridItem xs={12} sm={12} md={12} lg={10}>
+        <GridItem xs={12} sm={12} md={12} lg={12}>
           {htmlEle}
         </GridItem>
-        <GridItem xs={12} sm={12} md={12} lg={10}>
+        {/* <GridItem xs={12} sm={12} md={12} lg={12}>
           <CustomInput
             success={this.state.emailState === "success"}
             error={this.state.emailState === "error"}
@@ -341,7 +427,7 @@ class Step1 extends React.Component {
               )
             }}
           />
-        </GridItem>
+        </GridItem> */}
       </GridContainer>
     );
   }

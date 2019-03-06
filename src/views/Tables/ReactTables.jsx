@@ -150,10 +150,10 @@ class ReactTables extends React.Component {
             <CardBody>
               <div style={{ textAlign: "right" }}>
                 <Button
-                  color="success"
+                  color="esystemsBlue"
                   onClick={() => this.handleNewReferralForm()}
                 >
-                  Create New Referral Form
+                  New Referral
                 </Button>
               </div>
               <ReactTable

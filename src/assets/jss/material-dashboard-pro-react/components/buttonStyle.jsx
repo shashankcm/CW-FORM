@@ -18,7 +18,8 @@ import {
   behanceColor,
   dribbbleColor,
   redditColor,
-  hexToRgb
+  hexToRgb,
+  esystemsBlue
 } from "assets/jss/material-dashboard-pro-react.jsx";
 
 const buttonStyle = {
@@ -208,6 +209,28 @@ const buttonStyle = {
         hexToRgb(blackColor) +
         ", 0.12), 0 8px 10px -5px rgba(" +
         hexToRgb(dangerColor[0]) +
+        ", 0.2)"
+    }
+  },
+  esystemsBlue: {
+    backgroundColor: esystemsBlue,
+    boxShadow:
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(esystemsBlue) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(esystemsBlue) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(esystemsBlue) +
+      ", 0.12)",
+    "&:hover,&:focus": {
+      backgroundColor: esystemsBlue,
+      boxShadow:
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(esystemsBlue) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(esystemsBlue) +
         ", 0.2)"
     }
   },
