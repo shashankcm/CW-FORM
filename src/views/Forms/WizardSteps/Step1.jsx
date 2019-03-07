@@ -177,7 +177,7 @@ class Step1 extends React.Component {
     this.setState(prevState => ({
       newChildInfo: {
         ...prevState.newChildInfo,
-        [props]: moment(e._d).format("MM/DD/YYYY")
+        [props]: moment(e._d).format("MM/DD/YYYY, HH:MM:SS")
       }
     }));
   }
@@ -402,32 +402,6 @@ class Step1 extends React.Component {
         <GridItem xs={12} sm={12} md={12} lg={12}>
           {htmlEle}
         </GridItem>
-        {/* <GridItem xs={12} sm={12} md={12} lg={12}>
-          <CustomInput
-            success={this.state.emailState === "success"}
-            error={this.state.emailState === "error"}
-            labelText={
-              <span>
-                Email <small>(required)</small>
-              </span>
-            }
-            id="email"
-            formControlProps={{
-              fullWidth: true
-            }}
-            inputProps={{
-              onChange: event => this.change(event, "email", "email"),
-              endAdornment: (
-                <InputAdornment
-                  position="end"
-                  className={classes.inputAdornment}
-                >
-                  <Email className={classes.inputAdornmentIcon} />
-                </InputAdornment>
-              )
-            }}
-          />
-        </GridItem> */}
       </GridContainer>
     );
   }
