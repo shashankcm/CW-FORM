@@ -46,6 +46,7 @@ class ReferralList extends React.Component {
     super(props);
     this.state = {
       loading: "",
+      headerRow: [],
       data: []
     };
   }
@@ -155,6 +156,7 @@ class ReferralList extends React.Component {
         : this.setState({ loading: true });
     this.setState({
       loading: nextProps.referralList_received_data.loading,
+      headerRow: completeDataList.headerRow,
       data: displayReferralList
     });
   }
@@ -170,7 +172,7 @@ class ReferralList extends React.Component {
         <CircularProgress className={classes.progress} color="secondary" />
       );
     } else {
-      headerRow = this.state.data.headerRow ? this.state.data.headerRow : [];
+      headerRow = this.state.headerRow ? this.state.headerRow : [];
       table = (
         <GridContainer>
           <GridItem xs={12}>
