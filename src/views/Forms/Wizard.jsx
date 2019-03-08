@@ -24,6 +24,8 @@ class WizardView extends React.Component {
         var demoobj = formData[key].form;
         for (var form in demoobj) {
           var demoobj2 = demoobj[form].body.sections;
+          var titleName = demoobj[form].name;
+          var Description = demoobj[form].description;
           for (var sections in demoobj2) {
             var sectionName = demoobj2[sections].name;
             sectionobjs.push(demoobj2[sections]);
@@ -38,6 +40,8 @@ class WizardView extends React.Component {
 
         this.state = {
           stepsarr: indexSize,
+          titleName: titleName,
+          Description: Description,
           childData: {
             formID: "1001",
             data: {},
@@ -62,12 +66,25 @@ class WizardView extends React.Component {
     }
     stateCopy.childData.data["Sections"] = sections;
     this.setState(stateCopy);
-    const { history } = this.props.history;
-    this.props.createReferralListAction(this.state.childData, history);
+    this.props.createReferralListAction(this.state.childData);
   };
   componentDidMount(e) {
-    console.log(this.props.history);
+    //console.log(this.props.history.push("/error-page"));
+    //console.log(this.props.create_referralResponse);
   }
+
+  componentWillReceiveProps(nextProps) {
+    let create_referralResponse = nextProps.create_referralResponse;
+    if (
+      create_referralResponse.createReferralFormResponse != null &&
+      create_referralResponse.error === null
+    ) {
+      this.props.history.push("/admin/referrals");
+    } else {
+      //this.props.history.push("/error-page");
+    }
+  }
+
   render() {
     return (
       <GridContainer justify="center">
@@ -75,8 +92,8 @@ class WizardView extends React.Component {
           <Wizard
             validate
             steps={this.state.stepsarr}
-            title="Build Your Profile"
-            subtitle="This information will let us know more about you."
+            title={this.state.titleName}
+            subtitle={this.state.Description}
             finishButtonClick={this.handleCreateFormData}
           />
         </GridItem>
@@ -84,6 +101,10 @@ class WizardView extends React.Component {
     );
   }
 }
+
+const mapStateToProps = store => ({
+  create_referralResponse: store.createReferralForm
+});
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
@@ -94,6 +115,6 @@ const mapDispatchToProps = dispatch =>
   );
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(WizardView);

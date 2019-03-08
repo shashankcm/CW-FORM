@@ -260,6 +260,7 @@ class Step1 extends React.Component {
                         value={op.value}
                         name={el.name}
                         aria-label={el.name}
+                        color="primary"
                         icon={
                           <FiberManualRecord
                             className={classes.radioUnchecked}

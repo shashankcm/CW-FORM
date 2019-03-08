@@ -8,7 +8,8 @@ import {
   whiteColor,
   blackColor,
   grayColor,
-  hexToRgb
+  hexToRgb,
+  esystemsGreen
 } from "assets/jss/material-dashboard-pro-react.jsx";
 
 const wizardStyle = {
@@ -154,6 +155,15 @@ const wizardStyle = {
       hexToRgb(blackColor) +
       ", 0.14), 0 7px 10px -5px rgba(" +
       hexToRgb(roseColor[0]) +
+      ", 0.4)"
+  },
+  esystemsGreen: {
+    backgroundColor: esystemsGreen,
+    boxShadow:
+      "0 4px 20px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 7px 10px -5px rgba(" +
+      hexToRgb(esystemsGreen) +
       ", 0.4)"
   },
   footer: {

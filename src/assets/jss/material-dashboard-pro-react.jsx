@@ -174,6 +174,7 @@ const behanceColor = "#1769ff";
 const dribbbleColor = "#ea4c89";
 const redditColor = "#ff4500";
 const esystemsBlue = "#235BA8";
+const esystemsGreen = "#4DAA50";
 
 const boxShadow = {
   boxShadow:
@@ -234,6 +235,14 @@ const roseBoxShadow = {
     hexToRgb(roseColor[0]) +
     ",.4)"
 };
+const esystemsGreenBoxShadow = {
+  boxShadow:
+    "0 4px 20px 0 rgba(" +
+    hexToRgb(blackColor) +
+    ",.14), 0 7px 10px -5px rgba(" +
+    hexToRgb(esystemsGreen) +
+    ",.4)"
+};
 
 const warningCardHeader = {
   background:
@@ -265,7 +274,12 @@ const roseCardHeader = {
     "linear-gradient(60deg, " + roseColor[1] + ", " + roseColor[2] + ")",
   ...roseBoxShadow
 };
-
+const esystemsGreenCardHeader = {
+  background:
+    "linear-gradient(60deg, " + esystemsGreen + ", " + esystemsGreen + ")",
+  ...esystemsGreenBoxShadow
+};
+//esystemsGreen;
 const card = {
   display: "inline-block",
   position: "relative",
@@ -409,6 +423,8 @@ export {
   dribbbleColor,
   redditColor,
   esystemsBlue,
+  esystemsGreen,
+  esystemsGreenCardHeader,
   primaryBoxShadow,
   infoBoxShadow,
   successBoxShadow,

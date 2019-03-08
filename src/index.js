@@ -9,6 +9,7 @@ import store from "./redux/store/store";
 import AuthLayout from "layouts/Auth.jsx";
 import RtlLayout from "layouts/RTL.jsx";
 import AdminLayout from "layouts/Admin.jsx";
+import ErrorPage from "./views/Pages/ErrorPage.jsx";
 
 import "assets/scss/material-dashboard-pro-react.scss?v=1.5.0";
 
@@ -21,7 +22,8 @@ ReactDOM.render(
         <Route path="/rtl" component={RtlLayout} />
         <Route path="/auth" component={AuthLayout} />
         <Route path="/admin" component={AdminLayout} />
-       <Redirect from="/" to="/admin/forms" />
+        <Route path="/error-page" component={ErrorPage} />
+        <Redirect from="/" to="/admin/forms" />
       </Switch>
     </Router>
   </Provider>,

@@ -32,6 +32,9 @@ import Wizard from "views/Forms/Wizard.jsx";
 // @material-ui/icons
 import Apps from "@material-ui/icons/Apps";
 import DashboardIcon from "@material-ui/icons/Dashboard";
+import Assignment from "@material-ui/icons/Assignment";
+import Description from "@material-ui/icons/Description";
+import AssignmentTurnedIn from "@material-ui/icons/AssignmentTurnedIn";
 import DateRange from "@material-ui/icons/DateRange";
 import GridOn from "@material-ui/icons/GridOn";
 import Image from "@material-ui/icons/Image";
@@ -46,7 +49,7 @@ var dashRoutes = [
     path: "/forms",
     name: "Forms",
     rtlName: "التقويم",
-    icon: DashboardIcon,
+    icon: Description,
     component: ReactTables,
     layout: "/admin"
   },
@@ -54,19 +57,29 @@ var dashRoutes = [
     path: "/referrals",
     name: "Referrals",
     rtlName: "التقويم",
-    icon: DashboardIcon,
+    icon: Assignment,
     component: ReferralListTables,
     layout: "/admin"
   },
 
   {
     path: "/wizard",
-    name: "Wizard",
+    name: "Create Referral Form",
     rtlName: "ساحر",
+    icon: AssignmentTurnedIn,
     mini: "W",
     rtlMini: "ث",
     component: Wizard,
     layout: "/admin"
-  }
+  } /* ,
+  {
+    path: "/error-page",
+    name: "Error Page",
+    rtlName: "صفحة الخطأ",
+    mini: "E",
+    rtlMini: "البريد",
+    component: ErrorPage,
+    layout: "/admin"
+  } */
 ];
 export default dashRoutes;

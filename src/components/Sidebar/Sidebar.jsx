@@ -14,7 +14,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Hidden from "@material-ui/core/Hidden";
 import Collapse from "@material-ui/core/Collapse";
 import Icon from "@material-ui/core/Icon";
-import Typography from '@material-ui/core/Typography';
+import Typography from "@material-ui/core/Typography";
 // core components
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.jsx";
 
@@ -22,14 +22,10 @@ import sidebarStyle from "assets/jss/material-dashboard-pro-react/components/sid
 
 import avatar from "assets/img/faces/avatar.jpg";
 import { Input } from "@material-ui/core";
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 var ps;
 
-// We've created this component so we can have a ref to the wrapper of the links that appears in our sidebar.
-// This was necessary so that we could initialize PerfectScrollbar on the links.
-// There might be something with the Hidden component from material-ui, and we didn't have access to
-// the links, and couldn't initialize the plugin.
 class SidebarWrapper extends React.Component {
   componentDidMount() {
     if (navigator.platform.indexOf("Win") > -1) {
@@ -56,7 +52,6 @@ class SidebarWrapper extends React.Component {
   }
 }
 
-
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
@@ -65,8 +60,6 @@ class Sidebar extends React.Component {
       miniActive: true,
       ...this.getCollapseStates(props.routes)
     };
-
-
   }
 
   // this creates the intial state of this component based on the collapse routes
@@ -183,13 +176,13 @@ class Sidebar extends React.Component {
                 typeof prop.icon === "string" ? (
                   <Icon className={itemIcon}>{prop.icon}</Icon>
                 ) : (
-                    <prop.icon className={itemIcon} />
-                  )
+                  <prop.icon className={itemIcon} />
+                )
               ) : (
-                  <span className={collapseItemMini}>
-                    {rtlActive ? prop.rtlMini : prop.mini}
-                  </span>
-                )}
+                <span className={collapseItemMini}>
+                  {rtlActive ? prop.rtlMini : prop.mini}
+                </span>
+              )}
               <ListItemText
                 primary={rtlActive ? prop.rtlName : prop.name}
                 secondary={
@@ -279,13 +272,13 @@ class Sidebar extends React.Component {
               typeof prop.icon === "string" ? (
                 <Icon className={itemIcon}>{prop.icon}</Icon>
               ) : (
-                  <prop.icon className={itemIcon} />
-                )
+                <prop.icon className={itemIcon} />
+              )
             ) : (
-                <span className={collapseItemMini}>
-                  {rtlActive ? prop.rtlMini : prop.mini}
-                </span>
-              )}
+              <span className={collapseItemMini}>
+                {rtlActive ? prop.rtlMini : prop.mini}
+              </span>
+            )}
             <ListItemText
               primary={rtlActive ? prop.rtlName : prop.name}
               disableTypography={true}
@@ -354,9 +347,7 @@ class Sidebar extends React.Component {
       });
     var user = (
       <div className={userWrapperClass}>
-        <div className={photo}>
-
-        </div>
+        <div className={photo} />
         <List className={classes.list}>
           <ListItem className={classes.item + " " + classes.userItem}>
             <NavLink
@@ -365,7 +356,7 @@ class Sidebar extends React.Component {
               onClick={() => this.openCollapse("openAvatar")}
             >
               <ListItemText
-                primary={rtlActive ? "تانيا أندرو" : "Admin"}
+                primary={rtlActive ? "تانيا أندرو" : "Referral Portal"}
                 secondary={
                   <b
                     className={
@@ -476,7 +467,12 @@ class Sidebar extends React.Component {
         <a href="https://www.creative-tim.com" className={logoNormal}>
           {logoText}
         </a>
-        <Typography variant="caption" gutterBottom align="center" color='textPrimary'>
+        <Typography
+          variant="caption"
+          gutterBottom
+          align="center"
+          color="textPrimary"
+        >
           <font color="white">-- powered by eSystems Inc.</font>
         </Typography>
       </div>
@@ -559,12 +555,12 @@ class Sidebar extends React.Component {
 }
 
 Sidebar.defaultProps = {
-  bgColor: "blue"
+  bgColor: "esystemsGreen"
 };
 
 Sidebar.propTypes = {
   classes: PropTypes.object.isRequired,
-  bgColor: PropTypes.oneOf(["white", "black", "blue"]),
+  bgColor: PropTypes.oneOf(["white", "black", "blue", "esystemsGreen"]),
   rtlActive: PropTypes.bool,
   color: PropTypes.oneOf([
     "white",
@@ -573,7 +569,8 @@ Sidebar.propTypes = {
     "green",
     "blue",
     "purple",
-    "rose"
+    "rose",
+    "esystemsGreen"
   ]),
   logo: PropTypes.string,
   logoText: PropTypes.string,

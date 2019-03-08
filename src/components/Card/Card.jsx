@@ -67,7 +67,8 @@ Card.propTypes = {
     "success",
     "warning",
     "danger",
-    "rose"
+    "rose",
+    "esystemsGreen"
   ]),
   product: PropTypes.bool,
   chart: PropTypes.bool,

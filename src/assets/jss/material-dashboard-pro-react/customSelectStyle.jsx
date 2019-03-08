@@ -5,7 +5,8 @@ import {
   blackColor,
   grayColor,
   hexToRgb,
-  esystemsBlue
+  esystemsBlue,
+  esystemsGreen
 } from "assets/jss/material-dashboard-pro-react.jsx";
 
 const customSelectStyle = {
@@ -36,7 +37,7 @@ const customSelectStyle = {
         borderBottomColor: grayColor[4] + "!important"
       },
       "&:after": {
-        borderBottomColor: primaryColor[0] + "!important"
+        borderBottomColor: esystemsGreen + "!important"
       }
     }
   },
@@ -83,19 +84,19 @@ const customSelectStyle = {
     color: grayColor[7],
     paddingRight: "30px",
     "&:hover": {
-      backgroundColor: primaryColor[0],
+      backgroundColor: esystemsGreen,
       color: whiteColor,
       ...primaryBoxShadow
     }
   },
   selectMenuItemSelected: {
-    backgroundColor: primaryColor[0] + "!important",
+    backgroundColor: esystemsGreen + "!important",
     color: whiteColor
   },
   selectMenuItemSelectedMultiple: {
     backgroundColor: "transparent !important",
     "&:hover": {
-      backgroundColor: primaryColor[0] + "!important",
+      backgroundColor: esystemsGreen + "!important",
       color: whiteColor,
       ...primaryBoxShadow,
       "&:after": {

@@ -53,7 +53,8 @@ CardHeader.propTypes = {
     "danger",
     "info",
     "primary",
-    "rose"
+    "rose",
+    "esystemsGreen"
   ]),
   plain: PropTypes.bool,
   image: PropTypes.bool,

@@ -33,7 +33,8 @@ CustomLinearProgress.propTypes = {
     "success",
     "info",
     "rose",
-    "gray"
+    "gray",
+    "esystemsGreen"
   ])
 };
 

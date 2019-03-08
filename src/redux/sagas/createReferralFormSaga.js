@@ -21,20 +21,17 @@ const postCreateReferralFormData = forminstance => {
 function* postCreateReferralFormPostSaga(action) {
   try {
     //const { childInfo } = yield take(CREATE_REFERRAL_POST_POSTING);
-    const { forminstance, history } = action;
+    const { forminstance } = action;
     let forminstancePost = { forminstance };
     console.log("childInfo In Saga 1", forminstancePost);
     const createPostSuccessResponse = yield call(
       postCreateReferralFormData,
       forminstancePost
     );
-    console.log("Post Respopnse", createPostSuccessResponse);
     yield put({
       type: CREATE_REFERRAL_POST_POSTED,
       createPostSuccessResponse
     });
-
-    //yield put(push(window.location.pathname("/admin/referrals")));
   } catch (error) {
     yield put({ type: CREATE_REFERRAL_POST_ERROR, error });
   }

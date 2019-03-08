@@ -68,7 +68,8 @@ RegularButton.propTypes = {
     "dribbble",
     "reddit",
     "transparent",
-    "esystemsBlue"
+    "esystemsBlue",
+    "esystemsGreen"
   ]),
   size: PropTypes.oneOf(["sm", "lg"]),
   simple: PropTypes.bool,

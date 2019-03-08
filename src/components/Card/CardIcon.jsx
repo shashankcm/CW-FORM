@@ -33,7 +33,8 @@ CardIcon.propTypes = {
     "danger",
     "info",
     "primary",
-    "rose"
+    "rose",
+    "esystemsGreen"
   ])
 };
 

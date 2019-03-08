@@ -166,7 +166,8 @@ CustomTable.propTypes = {
     "success",
     "info",
     "rose",
-    "gray"
+    "gray",
+    "esystemsGreen"
   ]),
   tableHead: PropTypes.arrayOf(PropTypes.string),
   // Of(PropTypes.arrayOf(PropTypes.node)) || Of(PropTypes.object),

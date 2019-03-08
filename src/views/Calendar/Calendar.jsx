@@ -75,7 +75,7 @@ class Calendar extends React.Component {
     var backgroundColor = "event-";
     event.color
       ? (backgroundColor = backgroundColor + event.color)
-      : (backgroundColor = backgroundColor + "default");
+      : (backgroundColor = backgroundColor + "esystemsGreen");
     return {
       className: backgroundColor
     };

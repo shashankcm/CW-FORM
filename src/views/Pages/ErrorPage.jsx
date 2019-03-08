@@ -18,9 +18,11 @@ class ErrorPage extends React.Component {
         <GridContainer>
           <GridItem md={12}>
             <h1 className={classes.title}>404</h1>
-            <h2 className={classes.subTitle}>Page not found :(</h2>
+            <h2 className={classes.subTitle}>
+              Sorry the operation is unsuccessful :(
+            </h2>
             <h4 className={classes.description}>
-              Ooooups! Looks like you got lost.
+              Ooooups! Looks like you got lost. Please try again later. Thanks!!
             </h4>
           </GridItem>
         </GridContainer>

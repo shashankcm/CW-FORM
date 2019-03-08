@@ -21,6 +21,7 @@ import appStyle from "assets/jss/material-dashboard-pro-react/layouts/adminStyle
 
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/logo-white.svg";
+import esysLogo from "assets/img/esystems_logo.png";
 
 var ps;
 
@@ -143,7 +144,7 @@ class Dashboard extends React.Component {
         <Sidebar
           routes={routes}
           logoText={"Form Engine"}
-          logo={logo}
+          logo={esysLogo}
           image={this.state.image}
           handleDrawerToggle={this.handleDrawerToggle}
           open={this.state.mobileOpen}
@@ -168,10 +169,10 @@ class Dashboard extends React.Component {
               </div>
             </div>
           ) : (
-              <div className={classes.map}>
-                <Switch>{this.getRoutes(routes)}</Switch>
-              </div>
-            )}
+            <div className={classes.map}>
+              <Switch>{this.getRoutes(routes)}</Switch>
+            </div>
+          )}
           {this.getRoute() ? <Footer fluid /> : null}
           <FixedPlugin
             handleImageClick={this.handleImageClick}

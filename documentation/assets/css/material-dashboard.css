@@ -3727,7 +3727,7 @@ fieldset[disabled] .form-group.is-focused .radio label {
     height: 15px;
     width: 15px;
     border-radius: 100%;
-    background-color: #9c27b0;
+    background-color: #4DAA50/* #9c27b0;*/
     transform: scale3d(0, 0, 0);
 }
 
@@ -3768,11 +3768,11 @@ fieldset[disabled] .form-group.is-focused .radio label {
 }
 
 .radio input[type=radio]:checked~.check {
-    background-color: #9c27b0;
+    background-color: #4DAA50/* #9c27b0;*/
 }
 
 .radio input[type=radio]:checked~.circle {
-    border-color: #9c27b0;
+    border-color: #4DAA50/* #9c27b0;*/
 }
 
 .radio input[type=radio]:checked~.check {

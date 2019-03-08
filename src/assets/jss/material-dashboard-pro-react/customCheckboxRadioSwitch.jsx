@@ -5,7 +5,8 @@ import {
   grayColor,
   blackColor,
   whiteColor,
-  hexToRgb
+  hexToRgb,
+  eystemsGreen
 } from "assets/jss/material-dashboard-pro-react.jsx";
 
 const customCheckboxRadioSwitch = {
@@ -163,7 +164,7 @@ const customCheckboxRadioSwitch = {
   switchBar: {
     width: "30px",
     height: "15px",
-    backgroundColor: "rgb("+hexToRgb(grayColor[18])+")",
+    backgroundColor: "rgb(" + hexToRgb(grayColor[18]) + ")",
     borderRadius: "15px",
     opacity: "0.7!important"
   },
