@@ -43,6 +43,7 @@ import Timeline from "@material-ui/icons/Timeline";
 import WidgetsIcon from "@material-ui/icons/Widgets";
 
 import ReferralListTables from "views/Tables/Referral/ReferralList.jsx";
+import FormList from "./views/Tables/Form/FormList";
 
 var dashRoutes = [
   {
@@ -50,7 +51,7 @@ var dashRoutes = [
     name: "Forms",
     rtlName: "التقويم",
     icon: Description,
-    component: ReactTables,
+    component: FormList,
     layout: "/admin"
   },
   {

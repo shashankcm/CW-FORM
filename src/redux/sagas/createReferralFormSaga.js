@@ -1,7 +1,7 @@
 import { call, put, takeLatest, takeEvery, take } from "redux-saga/effects";
 import axios from "axios";
 
-import { push } from "react-router-redux";
+//import { push } from "react-router-redux";
 
 import {
   CREATE_REFERRAL_POST_POSTING,
@@ -12,7 +12,6 @@ import {
 const url = "http://localhost:3003/api/forminstance";
 
 const postCreateReferralFormData = forminstance => {
-  console.log("childInfo In Saga 2", forminstance);
   return axios
     .post(url, forminstance, { crossdomain: true })
     .then(res => res.data);
@@ -39,6 +38,8 @@ function* postCreateReferralFormPostSaga(action) {
 }
 
 export function* postCreateReferralSaga() {
-  console.log("I'm Here");
-  yield takeEvery(CREATE_REFERRAL_POST_POSTING, postCreateReferralFormPostSaga);
+  yield takeLatest(
+    CREATE_REFERRAL_POST_POSTING,
+    postCreateReferralFormPostSaga
+  );
 }
