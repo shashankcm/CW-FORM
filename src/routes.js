@@ -28,6 +28,7 @@ import ValidationForms from "views/Forms/ValidationForms.jsx";
 import VectorMap from "views/Maps/VectorMap.jsx";
 import Widgets from "views/Widgets/Widgets.jsx";
 import Wizard from "views/Forms/Wizard.jsx";
+import FormEditor from "views/FormEditor/FormEditor.jsx";
 
 // @material-ui/icons
 import Apps from "@material-ui/icons/Apps";
