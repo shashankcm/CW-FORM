@@ -72,6 +72,15 @@ var dashRoutes = [
     rtlMini: "ث",
     component: Wizard,
     layout: "/admin"
+  },
+  {
+    path: "/formEditor",
+    name: "FormEditor",
+    rtlName: "ساحر",
+    mini: "W",
+    rtlMini: "ث",
+    component: FormEditor,
+    layout: "/admin"
   } /* ,
   {
     path: "/error-page",
