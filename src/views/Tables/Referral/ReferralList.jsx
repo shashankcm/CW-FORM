@@ -113,8 +113,8 @@ class ReferralList extends React.Component {
                       });
                       //this.setState({ data: data });
                     }}
-                    color="esystemsGreen"
-                    className="delete"
+                    color="danger"
+                    className="remove"
                   >
                     <Delete />
                   </Button>{" "}
@@ -201,7 +201,7 @@ class ReferralList extends React.Component {
               <CardIcon color="esystemsGreen">
                 <Assignment />
               </CardIcon>
-              <h4 className={classes.cardIconTitle}>Referral List</h4>
+              <h4 className={classes.cardIconTitle}>Manage Referrals</h4>
             </CardHeader>
             <CardBody>
               <div style={{ textAlign: "right" }}>
@@ -209,7 +209,7 @@ class ReferralList extends React.Component {
                   color="esystemsGreen"
                   onClick={() => this.handleNewReferralForm()}
                 >
-                  Create New Referral Form
+                  New Referral
                 </Button>
               </div>
               {table}

@@ -19,6 +19,7 @@ import Typography from "@material-ui/core/Typography";
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.jsx";
 
 import sidebarStyle from "assets/jss/material-dashboard-pro-react/components/sidebarStyle.jsx";
+import esysLogo from "assets/img/esystems_logo.png";
 
 import avatar from "assets/img/faces/avatar.jpg";
 import { Input } from "@material-ui/core";
@@ -473,7 +474,7 @@ class Sidebar extends React.Component {
           align="center"
           color="textPrimary"
         >
-          <font color="white">-- powered by eSystems Inc.</font>
+          {/* <img src={esysLogo} alt="logo" className={logoNormal} /> */}
         </Typography>
       </div>
     );
